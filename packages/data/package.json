@@ -1,0 +1,24 @@
+{
+  "name": "@quality-platform/data",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --pretty false",
+    "test": "node --experimental-strip-types src/verify.ts",
+    "db:migrate": "node --experimental-strip-types src/migrate.ts",
+    "db:seed": "node --experimental-strip-types src/seed.ts",
+    "db:verify": "node --experimental-strip-types src/verify.ts"
+  },
+  "dependencies": {
+    "@quality-platform/contracts": "workspace:*",
+    "@quality-platform/domain": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "~5.7.2"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "M3-DEMO-DATA-MANIFEST-V1",
+  "dataVersion": "M1-DEMO-20260929-V1",
+  "generatedAt": "2026-09-29T09:00:00+08:00",
+  "demoOnly": true,
+  "description": "M3 AI 场景共用的 M1 生产检验日报演示数据，不代表生产业务事实。",
+  "source": {
+    "config": "seed-config.json",
+    "sha256": "d01c818506bb3c4ede82699d461206a757e9614639d1746c095fef0d66b8f305"
+  },
+  "outputs": {
+    "m1-production-inspection.json": {
+      "sha256": "e4293679e81cec7bdc76aef71b1eaebae5e70ccfa5be2624401e4b198b2e58cb",
+      "recordCount": 212
+    },
+    "quality_facts_m1_demo.csv": {
+      "sha256": "b3f5ee46716cb0c274caf8490c654fbb2fabce09d101842d2a745675ba39f1f2",
+      "factCount": 180
+    }
+  },
+  "coverage": {
+    "start": "2026-06-03",
+    "end": "2026-08-31",
+    "dayCount": 90,
+    "organizationId": "00000000-0000-4000-8000-000000000003",
+    "materialCounts": {
+      "MAT-CAM-032": 1,
+      "MAT-FPC-019": 90,
+      "MAT-RELAY-011": 1,
+      "MAT-USB-C-021": 120
+    },
+    "processCounts": {
+      "一检": 180,
+      "二检": 32
+    }
+  },
+  "metric": {
+    "businessCode": "production_inspection_daily",
+    "businessName": "生产检验日报",
+    "metricCode": "production_first_pass_rate",
+    "metricName": "一检生产合格率",
+    "definitionVersion": "METRIC-M1-DEMO-V1",
+    "dataset": "quality_facts_m1_demo",
+    "processCode": "FIRST_INSPECTION"
+  },
+  "expectedQueries": {
+    "allMaterialsAugust": {
+      "scope": {
+        "materialId": "ALL",
+        "start": "2026-08-01",
+        "end": "2026-08-31"
+      },
+      "recordCount": 62,
+      "numerator": 40248,
+      "denominator": 41280,
+      "rateRatio": 0.975,
+      "ratePercent": 97.5,
+      "evidenceCount": 62,
+      "firstEvidence": "M1FP-20260801-USB",
+      "lastEvidence": "M1FP-20260831-FPC"
+    },
+    "primaryFullWindow": {
+      "scope": {
+        "materialId": "MAT-USB-C-021",
+        "start": "2026-06-03",
+        "end": "2026-08-31"
+      },
+      "recordCount": 90,
+      "numerator": 45104,
+      "denominator": 46440,
+      "rateRatio": 0.971232,
+      "ratePercent": 97.1232,
+      "evidenceCount": 90,
+      "firstEvidence": "M1FP-20260603-USB",
+      "lastEvidence": "M1FP-20260831-USB"
+    },
+    "primaryAugust": {
+      "scope": {
+        "materialId": "MAT-USB-C-021",
+        "start": "2026-08-01",
+        "end": "2026-08-31"
+      },
+      "recordCount": 31,
+      "numerator": 15530,
+      "denominator": 16260,
+      "rateRatio": 0.955105,
+      "ratePercent": 95.5105,
+      "evidenceCount": 31,
+      "firstEvidence": "M1FP-20260801-USB",
+      "lastEvidence": "M1FP-20260831-USB"
+    },
+    "primaryAnomaly": {
+      "scope": {
+        "materialId": "MAT-USB-C-021",
+        "start": "2026-08-18",
+        "end": "2026-08-24"
+      },
+      "recordCount": 7,
+      "numerator": 3251,
+      "denominator": 3680,
+      "rateRatio": 0.883424,
+      "ratePercent": 88.3424,
+      "evidenceCount": 7,
+      "firstEvidence": "M1FP-20260818-USB",
+      "lastEvidence": "M1FP-20260824-USB"
+    },
+    "comparisonAugust": {
+      "scope": {
+        "materialId": "MAT-FPC-019",
+        "start": "2026-08-01",
+        "end": "2026-08-31"
+      },
+      "recordCount": 31,
+      "numerator": 24718,
+      "denominator": 25020,
+      "rateRatio": 0.98793,
+      "ratePercent": 98.793,
+      "evidenceCount": 31,
+      "firstEvidence": "M1FP-20260801-FPC",
+      "lastEvidence": "M1FP-20260831-FPC"
+    },
+    "sampleInsufficient": {
+      "scope": {
+        "materialId": "MAT-USB-C-021",
+        "start": "2026-06-03",
+        "end": "2026-06-03"
+      },
+      "recordCount": 1,
+      "numerator": 19,
+      "denominator": 20,
+      "rateRatio": 0.95,
+      "ratePercent": 95,
+      "evidenceCount": 1,
+      "firstEvidence": "M1FP-20260603-USB",
+      "lastEvidence": "M1FP-20260603-USB"
+    },
+    "noData": {
+      "scope": {
+        "materialId": "MAT-USB-C-021",
+        "start": "2026-09-01",
+        "end": "2026-09-07"
+      },
+      "recordCount": 0,
+      "numerator": 0,
+      "denominator": 0,
+      "rateRatio": null,
+      "ratePercent": null,
+      "evidenceCount": 0,
+      "firstEvidence": null,
+      "lastEvidence": null
+    }
+  },
+  "truthScenarios": [
+    {
+      "id": "sample_insufficient",
+      "materialId": "MAT-USB-C-021",
+      "start": "2026-06-03",
+      "end": "2026-06-03",
+      "expected": "insufficient_data"
+    },
+    {
+      "id": "normal_baseline",
+      "materialId": "MAT-USB-C-021",
+      "start": "2026-06-04",
+      "end": "2026-08-17",
+      "expected": "normal"
+    },
+    {
+      "id": "continuous_anomaly",
+      "materialId": "MAT-USB-C-021",
+      "start": "2026-08-18",
+      "end": "2026-08-24",
+      "expected": "anomaly_candidate"
+    },
+    {
+      "id": "recovery",
+      "materialId": "MAT-USB-C-021",
+      "start": "2026-08-25",
+      "end": "2026-08-31",
+      "expected": "recovery"
+    },
+    {
+      "id": "no_data",
+      "materialId": "MAT-USB-C-021",
+      "start": "2026-09-01",
+      "end": "2026-09-07",
+      "expected": "no_data"
+    }
+  ]
+}

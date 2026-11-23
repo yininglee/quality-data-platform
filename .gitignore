@@ -1,0 +1,31 @@
+node_modules/
+.pnpm-store/
+dist/
+coverage/
+playwright-report/
+test-results/
+runtime/
+*.tsbuildinfo
+.DS_Store
+__pycache__/
+*.pyc
+
+.env
+.env.local
+.env.*.local
+
+# 本地工作记忆与编辑器配置（不入库）
+.workbuddy/
+.cursor/
+
+# 部署应用工件（不入库）
+.wbapp_*.genie
+
+# 本地凭据、数据库和测试截图
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+docs/previews/

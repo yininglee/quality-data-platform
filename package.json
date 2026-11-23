@@ -1,0 +1,25 @@
+{
+  "name": "quality-data-platform",
+  "private": true,
+  "packageManager": "pnpm@11.16.0",
+  "scripts": {
+    "dev": "pnpm --filter @quality-platform/web dev",
+    "build": "pnpm typecheck && pnpm --filter @quality-platform/web build",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "e2e": "playwright test",
+    "db:migrate": "pnpm --filter @quality-platform/data db:migrate",
+    "db:seed": "pnpm --filter @quality-platform/data db:seed",
+    "db:verify": "pnpm --filter @quality-platform/data db:verify"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^24.0.0",
+    "eslint": "^9.0.0",
+    "typescript-eslint": "^8.0.0",
+    "typescript": "~5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
